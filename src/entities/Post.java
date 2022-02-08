@@ -1,13 +1,13 @@
 package entities;
 
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class Post {
+
+    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
     private Date moment;
     private String title;
@@ -70,23 +70,21 @@ public class Post {
         comments.remove(comment);
     }
 
-
     @Override
     public String toString() {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-
         StringBuilder sb = new StringBuilder();
-        sb.append(title).append("\n")
+        sb.append(title)
+                .append("\n")
                 .append(likes).append(" Likes - ")
                 .append(sdf.format(moment))
-                .append("\n").append(content)
+                .append("\n")
+                .append(content)
                 .append("\n")
                 .append("Comments: \n");
         for (Comment comment : comments) {
-            sb.append(comment).append("\n");
+            sb.append(comment)
+                    .append("\n");
         }
-
         return sb.toString();
     }
 }
