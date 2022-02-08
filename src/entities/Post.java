@@ -77,12 +77,14 @@ public class Post {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
 
         StringBuilder sb = new StringBuilder();
-        sb.append(title + "\n");
-        sb.append(likes + " Likes - " + sdf.format(moment) + "\n");
-        sb.append(content + "\n");
-        sb.append("Comments: \n");
+        sb.append(title).append("\n")
+                .append(likes).append(" Likes - ")
+                .append(sdf.format(moment))
+                .append("\n").append(content)
+                .append("\n")
+                .append("Comments: \n");
         for (Comment comment : comments) {
-            sb.append(comment + "\n");
+            sb.append(comment).append("\n");
         }
 
         return sb.toString();
